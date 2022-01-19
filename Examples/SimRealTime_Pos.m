@@ -68,7 +68,7 @@ n = numel(0:stepTime:tmax);
 
 x = linspace(A.pPos.X(1),0.5,n/2);
 y = linspace(A.pPos.X(2),0.75,n/2); 
-z = linspace(A.pPos.X(3),0.65,n/2); 
+z = linspace(A.pPos.X(3),1.25,n/2); 
 phi = linspace(A.pPos.X(4),0,n/2);
 theta = linspace(A.pPos.X(5),0,n/2); 
 psi = linspace(A.pPos.X(6),-pi/2,n/2);
@@ -78,8 +78,7 @@ idx = 1;
 
 while toc(t) < tmax
     
-    ta = tic;
-    if toc(tc) > 1/30/2
+    if toc(tc) > 1/30/4
         
         TT = [TT toc(tc)];
         
@@ -94,7 +93,6 @@ while toc(t) < tmax
     
     
     if toc(tp) > 0.1
-        tp = tic;
                 
         if toc(t) > 3*tmax/4
             A.mCADplot(1,1);
@@ -110,11 +108,9 @@ while toc(t) < tmax
         
         pause(5e-5)
         
-        toc(tp)
         
     end
     end
-%     toc(ta)
     
 end
 

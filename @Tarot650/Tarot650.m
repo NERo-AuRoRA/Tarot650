@@ -10,8 +10,13 @@ classdef Tarot650 < handle
         
         % Control variables
         pPos   % Posture
+        pSC    % Signals
         pFlag  % Flags
         pHom   % Homogeneous Transform
+        
+        % Navigation Data and Communication
+        pData % Flight Data
+        pCom  % Communication  
         
 
     end
@@ -23,6 +28,10 @@ classdef Tarot650 < handle
             end
             car.pID = ID;
                 
+            
+            drone.pFlag.Connected = 0;
+            
+            
             iControlVariables(car);
             iParameters(car);
             mCADload(car);
@@ -40,6 +49,10 @@ classdef Tarot650 < handle
         mCADcolor(car,color);
         % mCADmakeSkeleton(car);
 
+        % ==================================================
+        % ArDrone Models for simulation
+        %sDynamicModel(drone);      
+        sDynamicModelSimplify(drone)
       
     end
 end
